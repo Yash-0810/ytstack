@@ -189,7 +189,7 @@ const ContactPage = () => {
     try {
       await emailjs.send(
         'service_r8fsd4q',  // Service ID
-        'template_rfokbbh', // Template ID
+        'template_g7dovvl', // Template ID
         {
           from_name: formData.name,
           from_email: formData.email,
