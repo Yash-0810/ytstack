@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Send, Clock, ArrowRight } from 'lucide-react';
 import { SectionWrapper, Container } from '../components/SectionWrapper';
 import { toast } from 'sonner';
+import emailjs from '@emailjs/browser';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
@@ -186,26 +187,22 @@ const ContactPage = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch(`${BACKEND_URL}/api/contact`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
+      await emailjs.send(
+        'service_r8fsd4q',  // Service ID
+        'template_rfokbbh', // Template ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          from_phone: formData.phone,
           subject: formData.subject,
           message: formData.message,
-        }),
-      });
-
-      if (response.ok) {
-        toast.success("Message sent successfully! We'll get back to you within 24 hours.");
-        setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
-      } else {
-        const error = await response.json();
-        toast.error(error.detail || 'Failed to send message. Please try again.');
-      }
+        },
+        'r_qANPUMmvTUoCUfL' // Public Key
+      );
+      toast.success("Message sent successfully! We'll get back to you within 24 hours.");
+      setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
     } catch (error) {
+      console.error('EmailJS error:', error);
       toast.error('Failed to send message. Please try again.');
     } finally {
       setIsSubmitting(false);
