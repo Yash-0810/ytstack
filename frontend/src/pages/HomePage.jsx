@@ -648,7 +648,9 @@ const ProcessSection = () => {
 
 // Portfolio Section
 const portfolioItems = [
-
+  {
+    title: 'Yash Tripathi',
+    category: 'Personal Portfolio',
     url: 'https://yashtripathi.online',
     image: '/yashtripathi.png',
   },
@@ -664,8 +666,9 @@ const portfolioItems = [
     url: 'https://corridor-website.vercel.app/',
     image: '/Corridors.png',
   },
-
 ];
+
+
 
 const PortfolioSection = () => {
   return (
