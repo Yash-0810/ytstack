@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 
 export const Footer = () => {
   return (
+    <>
     <footer className="bg-slate-50 border-t border-slate-200 py-16 relative overflow-hidden" data-testid="footer">
       {/* Background accent */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(59,130,246,0.05),transparent_50%)]" />
@@ -25,15 +26,17 @@ export const Footer = () => {
             </p>
             <div className="flex gap-4">
               <motion.a 
-                href="https://github.com/Yash-0810" 
+                href="https://www.instagram.com/ytstack.llp/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-10 h-10 border border-slate-300 flex items-center justify-center hover:border-blue-500 hover:bg-blue-50 transition-all rounded-lg"
+                className="w-10 h-10 border border-slate-300 flex items-center justify-center hover:border-pink-500 hover:bg-pink-50 transition-all rounded-lg"
                 whileHover={{ y: -2 }}
-                data-testid="footer-github"
+                data-testid="footer-instagram"
               >
-                <svg className="w-5 h-5 text-slate-600 hover:text-blue-600" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                <svg className="w-5 h-5 text-slate-600 hover:text-pink-600" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5a4.25 4.25 0 0 0 4.25 4.25h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5a4.25 4.25 0 0 0-4.25-4.25h-8.5z"/>
+                  <path d="M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/>
+                  <circle cx="17.5" cy="6.5" r="1.2" />
                 </svg>
               </motion.a>
               <motion.a 
@@ -135,6 +138,22 @@ export const Footer = () => {
         </div>
       </div>
     </footer>
+
+    <a
+      href="https://wa.me/message/3YUULPRQPVP6A1"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="fixed bottom-6 right-6 z-50 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-emerald-500 to-green-600 px-5 py-3 text-white shadow-lg hover:from-emerald-600 hover:to-green-700 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 transition-all"
+      data-testid="whatsapp-connect-button"
+      aria-label="Connect now on WhatsApp"
+    >
+      <svg className="w-5 h-5" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+        <path d="M19.11 17.2c-.27-.14-1.57-.77-1.81-.85-.24-.09-.42-.14-.59.14-.17.27-.68.85-.83 1.02-.15.17-.3.19-.57.07-.27-.14-1.12-.41-2.13-1.3-.79-.7-1.32-1.56-1.47-1.83-.15-.27-.02-.42.12-.56.12-.12.27-.3.41-.45.14-.15.19-.27.28-.45.09-.17.05-.32-.02-.45-.07-.14-.59-1.42-.81-1.95-.21-.5-.43-.43-.59-.44h-.5c-.17 0-.45.07-.68.32-.24.27-.9.88-.9 2.14 0 1.26.92 2.48 1.05 2.65.14.17 1.8 2.74 4.37 3.84.61.27 1.09.43 1.46.55.62.2 1.19.17 1.63.1.5-.07 1.57-.64 1.79-1.26.22-.62.22-1.15.15-1.26-.06-.12-.24-.19-.5-.32z"/>
+        <path d="M16.02 3.2c-6.95 0-12.6 5.65-12.6 12.6 0 2.22.58 4.39 1.67 6.3L3 29l7.1-2.05a12.56 12.56 0 0 0 5.92 1.5h.01c6.95 0 12.6-5.65 12.6-12.6S22.98 3.2 16.03 3.2h-.01zm0 22.95h-.01a10.4 10.4 0 0 1-5.29-1.45l-.38-.23-4.21 1.22 1.23-4.1-.25-.42a10.36 10.36 0 0 1-1.6-5.51c0-5.73 4.66-10.39 10.4-10.39 2.78 0 5.39 1.08 7.35 3.04a10.34 10.34 0 0 1 3.04 7.35c0 5.73-4.66 10.39-10.39 10.39z"/>
+      </svg>
+      <span className="text-sm font-semibold">Connect now</span>
+    </a>
+    </>
   );
 };
 
