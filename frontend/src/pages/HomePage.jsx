@@ -648,9 +648,7 @@ const ProcessSection = () => {
 
 // Portfolio Section
 const portfolioItems = [
-  {
-    title: 'Yash Tripathi Portfolio',
-    category: 'Portfolio Website',
+
     url: 'https://yashtripathi.online',
     image: '/yashtri.png',
   },
