@@ -36,23 +36,21 @@ const IsometricGrid = () => {
 
 // 3D Floating Cubes with proper perspective
 const Floating3DCubes = () => {
-  const cubes = [
-    { x: '8%', y: '15%', size: 50, delay: 0, duration: 8 },
-    { x: '85%', y: '20%', size: 40, delay: 1.5, duration: 10 },
-    { x: '75%', y: '60%', size: 60, delay: 0.5, duration: 9 },
-    { x: '15%', y: '70%', size: 35, delay: 2, duration: 7 },
-    { x: '90%', y: '80%', size: 45, delay: 1, duration: 11 },
+  const isMobileOrReduced = window.matchMedia('(prefers-reduced-motion: reduce), (pointer: coarse)').matches;
+  const cubes = isMobileOrReduced ? [] : [
+    { x: '10%', y: '20%', size: 40, delay: 0, duration: 12 },
+    { x: '80%', y: '70%', size: 35, delay: 2, duration: 15 },
   ];
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none will-change-transform translate-z-0" style={{ transform: 'translateZ(0)' }}>
       {cubes.map((cube, i) => (
         <motion.div
           key={i}
-          className="absolute"
-          style={{ left: cube.x, top: cube.y, perspective: '500px' }}
+          className="absolute will-change-transform"
+          style={{ left: cube.x, top: cube.y, perspective: '300px' }}
           animate={{
-            y: [0, -25, 0],
+            y: [0, -15, 0],
           }}
           transition={{
             duration: cube.duration,
@@ -62,6 +60,7 @@ const Floating3DCubes = () => {
           }}
         >
           <motion.div
+            className="will-change-transform"
             style={{
               width: cube.size,
               height: cube.size,
@@ -72,63 +71,34 @@ const Floating3DCubes = () => {
               rotateY: [0, 360],
             }}
             transition={{
-              duration: cube.duration * 2,
+              duration: cube.duration * 1.5,
               repeat: Infinity,
               ease: 'linear',
             }}
           >
-            {/* Front */}
+            {/* Simplified 3 faces */}
             <div 
-              className="absolute bg-gradient-to-br from-blue-400/20 to-blue-500/10 border border-blue-300/40 backdrop-blur-sm"
+              className="absolute bg-gradient-to-br from-blue-400/15 to-blue-500/10 border border-blue-300/30"
               style={{ 
                 width: cube.size, 
                 height: cube.size,
                 transform: `translateZ(${cube.size/2}px)`,
               }}
             />
-            {/* Back */}
             <div 
-              className="absolute bg-gradient-to-br from-blue-400/10 to-blue-500/5 border border-blue-300/30"
-              style={{ 
-                width: cube.size, 
-                height: cube.size,
-                transform: `rotateY(180deg) translateZ(${cube.size/2}px)`,
-              }}
-            />
-            {/* Left */}
-            <div 
-              className="absolute bg-gradient-to-br from-cyan-400/15 to-blue-400/10 border border-blue-300/30"
+              className="absolute bg-gradient-to-br from-cyan-400/10 to-blue-400/10 border border-blue-300/20"
               style={{ 
                 width: cube.size, 
                 height: cube.size,
                 transform: `rotateY(-90deg) translateZ(${cube.size/2}px)`,
               }}
             />
-            {/* Right */}
             <div 
-              className="absolute bg-gradient-to-br from-blue-300/20 to-cyan-400/10 border border-blue-300/40"
-              style={{ 
-                width: cube.size, 
-                height: cube.size,
-                transform: `rotateY(90deg) translateZ(${cube.size/2}px)`,
-              }}
-            />
-            {/* Top */}
-            <div 
-              className="absolute bg-gradient-to-br from-blue-200/30 to-cyan-300/20 border border-blue-300/50"
+              className="absolute bg-gradient-to-br from-blue-200/20 to-cyan-300/10 border border-blue-300/30"
               style={{ 
                 width: cube.size, 
                 height: cube.size,
                 transform: `rotateX(90deg) translateZ(${cube.size/2}px)`,
-              }}
-            />
-            {/* Bottom */}
-            <div 
-              className="absolute bg-gradient-to-br from-blue-500/10 to-blue-600/5 border border-blue-400/20"
-              style={{ 
-                width: cube.size, 
-                height: cube.size,
-                transform: `rotateX(-90deg) translateZ(${cube.size/2}px)`,
               }}
             />
           </motion.div>
@@ -221,30 +191,32 @@ const FloatingTechIcons = () => {
 
 // Glowing Particles
 const GlowingParticles = () => {
-  const particles = [...Array(20)].map((_, i) => ({
+  const isMobileOrReduced = window.matchMedia('(prefers-reduced-motion: reduce), (pointer: coarse)').matches;
+  const particleCount = isMobileOrReduced ? 6 : 12;
+  const particles = [...Array(particleCount)].map((_, i) => ({
     x: Math.random() * 100,
     y: Math.random() * 100,
-    size: 2 + Math.random() * 4,
-    duration: 3 + Math.random() * 4,
-    delay: Math.random() * 3,
+    size: 1.5 + Math.random() * 2,
+    duration: 4 + Math.random() * 3,
+    delay: Math.random() * 2,
   }));
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none will-change-transform" style={{ transform: 'translateZ(0)' }}>
       {particles.map((p, i) => (
         <motion.div
           key={i}
-          className="absolute rounded-full bg-blue-400"
+          className="absolute rounded-full bg-blue-400/80"
           style={{
             left: `${p.x}%`,
             top: `${p.y}%`,
             width: p.size,
             height: p.size,
-            boxShadow: `0 0 ${p.size * 3}px ${p.size}px rgba(59, 130, 246, 0.3)`,
+            boxShadow: `0 0 ${p.size * 2}px rgba(59, 130, 246, 0.2)`,
           }}
           animate={{
-            opacity: [0, 0.8, 0],
-            scale: [0, 1, 0],
+            opacity: [0, 0.6, 0],
+            scale: [0, 0.8, 0],
           }}
           transition={{
             duration: p.duration,
@@ -680,13 +652,19 @@ const portfolioItems = [
     title: 'Yash Tripathi Portfolio',
     category: 'Portfolio Website',
     url: 'https://yashtripathi.online',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop',
+    image: '/yashtri.png',
   },
   {
     title: 'Vrinaa Occasions',
     category: 'Business Website',
     url: 'https://vrinaaoccasions.in',
-    image: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=600&h=400&fit=crop',
+    image: '/Vrinna.png',
+  },
+  {
+    title: 'Corridor',
+    category: 'Business Website',
+    url: 'https://corridor-website.vercel.app/',
+    image: '/Corridor.png',
   },
 ];
 

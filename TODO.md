@@ -2,3 +2,5 @@
 - [x] Add floating WhatsApp CTA button at bottom-right in Footer
 - [ ] Verify styling consistency and accessibility of new links
 - [ ] Validate in running local site
+- [ ] Add Corridor project in HomePage recent projects
+- [ ] Validate HomePage compile/build after Corridor addition
