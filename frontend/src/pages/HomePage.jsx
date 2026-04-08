@@ -650,20 +650,21 @@ const ProcessSection = () => {
 const portfolioItems = [
 
     url: 'https://yashtripathi.online',
-    image: '/yashtri.png',
+    image: '/yashtripathi.png',
   },
   {
     title: 'Vrinaa Occasions',
     category: 'Business Website',
     url: 'https://vrinaaoccasions.in',
-    image: '/Vrinna.png',
+    image: '/VrinnaOcc.png',
   },
   {
     title: 'Corridor',
     category: 'Business Website',
     url: 'https://corridor-website.vercel.app/',
-    image: '/Corridor.png',
+    image: '/Corridors.png',
   },
+
 ];
 
 const PortfolioSection = () => {
